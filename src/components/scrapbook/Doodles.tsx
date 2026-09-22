@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { ReactNode, SVGProps } from "react";
 import { motion } from "motion/react";
 
 const ink = "currentColor";
@@ -58,6 +58,6 @@ export function RooftopScene() {
  </svg>;
 }
 
-export function FloatingDoodle({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+export function FloatingDoodle({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
  return <motion.div className={className} animate={{ y: [0,-7,0], rotate: [-1,1,-1] }} transition={{ duration: 5, repeat: Infinity, delay, ease: "easeInOut" }}>{children}</motion.div>;
 }
