@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { DoodleCloud,DoodleMoon,RooftopScene } from "@/components/scrapbook/Doodles";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 export const Route=createFileRoute("/always-here")({head:()=>({meta:[{title:"I mean this — For You"},{name:"description",content:"A quiet promise under a hand-drawn night sky: I am still here."},{property:"og:title",content:"I mean this"},{property:"og:description",content:"I will listen, sit with you, distract you, and stay when words do not work."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:AlwaysHere});
 const promises=["I’ll listen.","I’ll sit with you.","I’ll distract you.","I’ll make stupid jokes.","I’ll remind you that things won't always feel like this.","And when you don't know what to say…","You can just say nothing."];
-function AlwaysHere(){return <main className="scrap-page night-page"><div className="night-intro"><span>page 04 / after midnight</span><h1>I mean this.</h1><p>No matter what happens…</p><DoodleMoon/><DoodleCloud/></div><section className="rooftop-wrap"><RooftopScene/><span className="rooftop-note">no fixing. just company.</span></section><section className="promise-list">{promises.map((p,i)=><motion.p key={p} initial={{opacity:0,x:i%2?-18:18}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.7}} transition={{duration:.7}}>{p}</motion.p>)}<motion.div className="still-here" initial={{opacity:0,scale:.9}} whileInView={{opacity:1,scale:1}} viewport={{once:true}}><span>I’m still here.</span><svg viewBox="0 0 330 32" aria-hidden="true"><path d="M4 21c76-21 200 18 321-9"/></svg></motion.div><p className="promise-word">Promise.</p></section></main>}
+function AlwaysHere(){return <main className="scrap-page night-page"><div className="night-intro"><span>page 04 / after midnight</span><h1>I mean this.</h1><p>No matter what happens…</p><DoodleMoon/><DoodleCloud/></div><section className="rooftop-wrap"><RooftopScene/><span className="rooftop-note">no fixing. just company.</span></section><section className="promise-list">{promises.map((p,i)=><motion.p key={p} initial={{opacity:0,x:i%2?-18:18}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.7}} transition={{duration:.7}}>{p}</motion.p>)}<motion.div className="still-here" initial={{opacity:0,scale:.9}} whileInView={{opacity:1,scale:1}} viewport={{once:true}}><span>I’m still here.</span><svg viewBox="0 0 330 32" aria-hidden="true"><path d="M4 21c76-21 200 18 321-9"/></svg></motion.div><p className="promise-word">Promise.</p></section>
+<motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex justify-center mt-12 mb-16 w-full z-10 relative">
+  <Button asChild variant="doodleRed" size="lg">
+    <Link to="/final">One last thing <span aria-hidden="true">→</span></Link>
+  </Button>
+</motion.div>
+</main>}
