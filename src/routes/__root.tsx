@@ -15,6 +15,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { NotebookNav } from "@/components/scrapbook/NotebookNav";
 import { MusicPlayer } from "@/components/scrapbook/MusicPlayer";
+import { IntroScreen } from "@/components/scrapbook/IntroScreen";
+import { useState } from "react";
 
 function NotFoundComponent() {
   return (
@@ -123,9 +125,11 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const reduced = useReducedMotion();
+  const [introFinished, setIntroFinished] = useState(false);
 
   return (
     <QueryClientProvider client={queryClient}>
+      {!introFinished && <IntroScreen onComplete={() => setIntroFinished(true)} />}
       <NotebookNav />
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={pathname} initial={reduced ? false : { opacity: 0, x: 22, rotate: 0.25 }} animate={{ opacity: 1, x: 0, rotate: 0 }} exit={reduced ? {} : { opacity: 0, x: -16, rotate: -0.2 }} transition={{ duration: 0.28, ease: "easeOut" }}>
