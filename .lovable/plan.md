@@ -3,15 +3,17 @@
 ## What I’ll build
 - Create five complete pages: Home, Letter, Little Things, Always Here, and Final.
 - Use the supplied wording and keep the tone personal, platonic, warm, and slightly playful.
-- Add shared notebook-tab navigation, gentle page transitions, and a persistent music player that uses the optional local MP3 only.
-- Build every visual from CSS and inline SVG: characters, stars, hearts, clouds, flowers, moon, cat, coffee, headphones, paper plane, rooftop, and scrapbook marks.
+- Add shared notebook-tab navigation, quick paper-slide/page-turn transitions, and a persistent music player that uses the optional local MP3 only.
+- Build every visual from CSS and deliberately imperfect inline SVG: recurring characters, stars, hearts, clouds, flowers, moon, cat, coffee, headphones, paper plane, rooftop, and scrapbook marks.
 
 ## Visual direction
-- Off-white paper with subtle CSS grain and faint notebook lines.
-- Graphite ink with restrained pink, red, yellow, blue, and green marker accents.
-- Handwritten display type paired with a readable sans-serif body type.
-- Imperfect borders, tape, underlines, scribbles, sticky notes, and slow, intentional movement.
-- No stock images, PNGs, glass effects, oversized text, generic cards, or template-like sections.
+- Treat the site as five consecutive leaves of one physical notebook, not five conventional web layouts.
+- Use off-white paper, faint CSS grain and ruling, graphite/fineliner marks, faded red marker, and restrained yellow highlighter; other accent colors remain rare.
+- Pair handwritten display type with a readable sans-serif body, using human-scale typography rather than oversized web headlines.
+- Build irregular SVG strokes, uneven circles, crossed-out words, margin notes, arrows, tape, scraps, pencil marks, and small objects into page-specific compositions.
+- Create two recurring minimal doodle characters with simple heads, stick-like limbs, tiny shoes, and understated expressions. Their poses tell a coherent, explicitly platonic friendship story across all five pages.
+- Vary alignment, rotation, overlap, and breathing room editorially. Avoid centered-section repetition, generic cards, symmetrical decoration, emoji-led artwork, stock imagery, PNGs, glass effects, and template-like presentation.
+- Recompose illustrations and notes intentionally for mobile rather than merely stacking desktop blocks.
 
 ## Interactions
 - Reveal the letter naturally as it enters view, with small margin notes and a drawn underline.
