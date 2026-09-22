@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 // project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Hey… come here for a second — For You" },
+    { title: "Hey Sneh… come here for a second — For You" },
     { name: "description", content: "A small handmade corner of the internet, made to remind you that you are not alone." },
     { property: "og:title", content: "A little corner of the internet, for you" },
     { property: "og:description", content: "Everything feels heavy sometimes. You do not have to carry it alone." },
@@ -25,7 +25,7 @@ function Index() {
     <main className="scrap-page home-page">
       <div className="opening-note"><span>page 01</span><b>open gently</b></div>
       <section className="home-copy">
-        <motion.p className="kicker" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}}>Hey… come here for a second.</motion.p>
+        <motion.p className="kicker" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}}>Hey Sneh… come here for a second.</motion.p>
         <h1>Everything feels a little <span className="circled-word">heavy</span> sometimes.</h1>
         <p className="home-sub">But hey…<br/><strong>you don’t have to carry it all by yourself.</strong></p>
         <p className="hand-line">I made this little corner of the internet just for you.</p>
