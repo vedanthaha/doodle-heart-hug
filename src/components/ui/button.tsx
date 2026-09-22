@@ -16,6 +16,12 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        doodle:
+          "rounded-[38%_43%_35%_46%/28%_36%_31%_40%] border-2 border-ink bg-marker-yellow px-5 py-3 font-hand text-base text-ink shadow-doodle transition-transform hover:-rotate-1 hover:-translate-y-0.5 active:translate-y-0 active:rotate-1",
+        doodleRed:
+          "rounded-[42%_34%_45%_37%/31%_42%_34%_40%] border-2 border-ink bg-marker-red px-5 py-3 font-hand text-base text-paper shadow-doodle transition-transform hover:rotate-1 hover:-translate-y-0.5 active:translate-y-0",
+        doodleIcon:
+          "rounded-[43%_38%_46%_34%] border-2 border-ink bg-paper text-ink shadow-doodle transition-transform hover:-rotate-3 active:translate-y-0.5",
       },
       size: {
         default: "h-9 px-4 py-2",

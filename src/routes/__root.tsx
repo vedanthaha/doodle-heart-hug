@@ -6,11 +6,15 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { NotebookNav } from "@/components/scrapbook/NotebookNav";
+import { MusicPlayer } from "@/components/scrapbook/MusicPlayer";
 
 function NotFoundComponent() {
   return (
@@ -77,11 +81,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "A little corner for you" },
+      { name: "description", content: "A handmade notebook about not having to face everything alone." },
+      { name: "author", content: "Ved" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -92,6 +94,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,11 +121,18 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const reduced = useReducedMotion();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <NotebookNav />
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div key={pathname} initial={reduced ? false : { opacity: 0, x: 22, rotate: 0.25 }} animate={{ opacity: 1, x: 0, rotate: 0 }} exit={reduced ? {} : { opacity: 0, x: -16, rotate: -0.2 }} transition={{ duration: 0.28, ease: "easeOut" }}>
+          <Outlet />
+        </motion.div>
+      </AnimatePresence>
+      <MusicPlayer />
     </QueryClientProvider>
   );
 }
