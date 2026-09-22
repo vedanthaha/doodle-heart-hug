@@ -94,6 +94,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -125,7 +128,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <NotebookNav />
       <AnimatePresence mode="wait" initial={false}>
-        <motion.div key={pathname} initial={reduced ? false : { opacity: 0, x: 22, rotate: 0.25 }} animate={{ opacity: 1, x: 0, rotate: 0 }} exit={reduced ? undefined : { opacity: 0, x: -16, rotate: -0.2 }} transition={{ duration: 0.28, ease: "easeOut" }}>
+        <motion.div key={pathname} initial={reduced ? false : { opacity: 0, x: 22, rotate: 0.25 }} animate={{ opacity: 1, x: 0, rotate: 0 }} exit={reduced ? {} : { opacity: 0, x: -16, rotate: -0.2 }} transition={{ duration: 0.28, ease: "easeOut" }}>
           <Outlet />
         </motion.div>
       </AnimatePresence>

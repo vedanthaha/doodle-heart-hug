@@ -10,33 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlwaysHereRouteImport } from './routes/always-here'
+import { Route as FinalRouteImport } from './routes/final'
+import { Route as LetterRouteImport } from './routes/letter'
+import { Route as LittleThingsRouteImport } from './routes/little-things'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlwaysHereRoute = AlwaysHereRouteImport.update({
+  id: '/always-here',
+  path: '/always-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalRoute = FinalRouteImport.update({
+  id: '/final',
+  path: '/final',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LetterRoute = LetterRouteImport.update({
+  id: '/letter',
+  path: '/letter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LittleThingsRoute = LittleThingsRouteImport.update({
+  id: '/little-things',
+  path: '/little-things',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/always-here': typeof AlwaysHereRoute
+  '/final': typeof FinalRoute
+  '/letter': typeof LetterRoute
+  '/little-things': typeof LittleThingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/always-here': typeof AlwaysHereRoute
+  '/final': typeof FinalRoute
+  '/letter': typeof LetterRoute
+  '/little-things': typeof LittleThingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/always-here': typeof AlwaysHereRoute
+  '/final': typeof FinalRoute
+  '/letter': typeof LetterRoute
+  '/little-things': typeof LittleThingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/always-here' | '/final' | '/letter' | '/little-things'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/always-here' | '/final' | '/letter' | '/little-things'
+  id:
+    '__root__' | '/' | '/always-here' | '/final' | '/letter' | '/little-things'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlwaysHereRoute: typeof AlwaysHereRoute
+  FinalRoute: typeof FinalRoute
+  LetterRoute: typeof LetterRoute
+  LittleThingsRoute: typeof LittleThingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +89,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/always-here': {
+      id: '/always-here'
+      path: '/always-here'
+      fullPath: '/always-here'
+      preLoaderRoute: typeof AlwaysHereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/final': {
+      id: '/final'
+      path: '/final'
+      fullPath: '/final'
+      preLoaderRoute: typeof FinalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/letter': {
+      id: '/letter'
+      path: '/letter'
+      fullPath: '/letter'
+      preLoaderRoute: typeof LetterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/little-things': {
+      id: '/little-things'
+      path: '/little-things'
+      fullPath: '/little-things'
+      preLoaderRoute: typeof LittleThingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlwaysHereRoute: AlwaysHereRoute,
+  FinalRoute: FinalRoute,
+  LetterRoute: LetterRoute,
+  LittleThingsRoute: LittleThingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
